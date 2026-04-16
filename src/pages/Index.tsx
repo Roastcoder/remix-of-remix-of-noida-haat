@@ -16,13 +16,13 @@ import bannerEco from "@/assets/banner-eco.jpg";
 
 const trustBadges = [
   { icon: Truck, label: "freeDelivery", desc: "acrossIndia" },
-  { icon: Shield, label: "handcrafted", desc: "genuineProducts" },
-  { icon: Gem, label: "ecoFriendly", desc: "genuineProducts" },
+  { icon: Shield, label: "premiumQuality", desc: "genuineProducts" },
+  { icon: Gem, label: "handcrafted", desc: "genuineProducts" },
 ];
 
 const fallbackPromos = [
-  { image: bannerArtisan, title: "Meet Our Artisans", subtitle: "Every product tells a story of tradition & skill", link: "/about" },
-  { image: bannerEco, title: "Eco-Friendly Crafts", subtitle: "Sustainable, handmade & good for the planet", link: "/category/gifts" },
+  { image: bannerArtisan, title: "Artisan Fabric Collection", subtitle: "Handwoven by master craftspeople for your home", link: "/about" },
+  { image: bannerEco, title: "Sustainable Luxury", subtitle: "Organic cotton & eco-friendly textiles for conscious living", link: "/category/bedlinen" },
 ];
 
 function PromoBannerCard({ image, title, subtitle, link }: { image: string; title: string; subtitle: string; link: string }) {
@@ -58,15 +58,14 @@ function ProductGridSkeleton({ count = 4 }: { count?: number }) {
   );
 }
 
-// Map category slug to DB category value
 const categorySlugToDb: Record<string, string> = {
-  pottery: "Pottery",
-  jewelry: "Jewelry",
-  textiles: "Textiles",
-  woodcraft: "Woodcraft",
-  art: "Art",
-  homedecor: "Homedecor",
-  gifts: "Gifts",
+  bedlinen: "Bed Linen",
+  towels: "Towels",
+  rugs: "Rugs",
+  cushions: "Cushions",
+  tablelinen: "Table Linen",
+  curtains: "Curtains",
+  blankets: "Blankets",
 };
 
 export default function Index() {
@@ -78,7 +77,6 @@ export default function Index() {
     ? dbPromos.map(b => ({ image: b.image_url, title: b.title, subtitle: b.subtitle || "", link: b.cta_link }))
     : fallbackPromos;
 
-  // Group products by category
   const getProductsByCategory = (slug: string) => {
     const dbCat = categorySlugToDb[slug] || slug;
     return products.filter(p => p.category.toLowerCase() === dbCat.toLowerCase());
@@ -109,7 +107,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Shop by Category */}
+      {/* Shop by Collection */}
       <section className="py-6 sm:py-8 bg-background">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-lg sm:text-2xl font-bold text-foreground mb-5">{t("shopByCategory")}</h2>
@@ -151,7 +149,6 @@ export default function Index() {
                 </div>
               )}
             </div>
-            {/* Insert promo banner after 2nd category */}
             {catIndex === 1 && promos[1] && <div className="mt-6"><PromoBannerCard {...promos[1]} /></div>}
           </section>
         );
