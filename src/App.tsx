@@ -78,6 +78,7 @@ const App = () => (
               <Route path="/blog" element={<StorefrontLayout><Blog /></StorefrontLayout>} />
               <Route path="/contact" element={<StorefrontLayout><Contact /></StorefrontLayout>} />
               <Route path="/careers" element={<StorefrontLayout><Careers /></StorefrontLayout>} />
+              <Route path="/b2b" element={<StorefrontLayout><B2B /></StorefrontLayout>} />
               <Route path="/login" element={<Login />} />
 
               {/* Admin Panel */}
