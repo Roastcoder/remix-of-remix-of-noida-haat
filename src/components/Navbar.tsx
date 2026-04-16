@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Search, ShoppingBag, Menu, X, ChevronDown, ChevronRight, User } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, ChevronDown, ChevronRight, User, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useCart } from "@/lib/cart";
 import { SearchOverlay } from "./SearchOverlay";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { categories } from "@/lib/data";
-import logoIcon from "@/assets/logo-noidahaat.png";
+import logoIcon from "@/assets/logo-textiletwist.png";
 
 const navLinks = [
   { name: "home", path: "/", dropdown: undefined },
   { name: "categories", path: "#", dropdown: "categories" },
   { name: "about", path: "/about", dropdown: undefined },
   { name: "services", path: "/services", dropdown: undefined },
+  { name: "blog", path: "/blog", dropdown: undefined },
+  { name: "b2b", path: "/b2b", dropdown: undefined },
   { name: "contact", path: "/contact", dropdown: undefined },
 ];
 
@@ -22,6 +24,7 @@ const mobileMenuLinks = [
   { name: "about", path: "/about" },
   { name: "services", path: "/services" },
   { name: "blog", path: "/blog" },
+  { name: "b2b", path: "/b2b" },
   { name: "contact", path: "/contact" },
 ];
 
@@ -74,10 +77,10 @@ export function Navbar() {
       }`}>
         <div className="w-full px-4 sm:px-6 lg:px-10 h-full flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img src={logoIcon} alt="NoidaHaat" className="w-8 h-8 sm:w-9 sm:h-9" />
+            <img src={logoIcon} alt="Textile Twist" className="w-8 h-8 sm:w-9 sm:h-9" />
             <div className="hidden sm:block">
-              <span className="text-base font-bold text-foreground leading-none">Noida</span>
-              <span className="text-base font-bold text-primary leading-none">Haat</span>
+              <span className="text-base font-bold text-foreground leading-none">Textile</span>
+              <span className="text-base font-bold text-primary leading-none"> Twist</span>
             </div>
           </Link>
 
@@ -158,8 +161,8 @@ export function Navbar() {
             >
               <div className="flex items-center justify-between p-4 border-b border-border">
                 <Link to="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                  <img src={logoIcon} alt="NoidaHaat" className="w-8 h-8" />
-                  <span className="text-sm font-bold text-foreground">NoidaHaat</span>
+                  <img src={logoIcon} alt="Textile Twist" className="w-8 h-8" />
+                  <span className="text-sm font-bold text-foreground">Textile Twist</span>
                 </Link>
                 <button onClick={() => setMobileOpen(false)} className="p-1 text-muted-foreground">
                   <X className="w-5 h-5" />
@@ -200,12 +203,6 @@ export function Navbar() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-
-                <div className="pt-4 border-t border-border mt-4">
-                  <a href="https://wa.me/919876543210" className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-primary">
-                    WhatsApp: 98765 43210
-                  </a>
-                </div>
               </div>
             </motion.div>
           </>

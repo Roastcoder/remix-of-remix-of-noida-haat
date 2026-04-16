@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
-import logoIcon from "@/assets/logo-noidahaat.png";
+import logoIcon from "@/assets/logo-textiletwist.png";
 
 const socialIcons: Record<string, React.ReactNode> = {
   instagram: (
@@ -21,17 +21,17 @@ const socialIcons: Record<string, React.ReactNode> = {
 };
 
 const footerLinks = {
-  "Shop": [
-    { name: "Pottery & Clay", path: "/category/pottery" },
-    { name: "Jewelry", path: "/category/jewelry" },
-    { name: "Textiles", path: "/category/textiles" },
-    { name: "Art & Paintings", path: "/category/art" },
+  "Collections": [
+    { name: "Premium Bed Linen", path: "/category/bedlinen" },
+    { name: "Luxury Towels", path: "/category/towels" },
+    { name: "Artisanal Rugs", path: "/category/rugs" },
+    { name: "Designer Cushions", path: "/category/cushions" },
   ],
   "More": [
-    { name: "Woodcraft", path: "/category/woodcraft" },
-    { name: "Home Decor", path: "/category/homedecor" },
-    { name: "Gifts", path: "/category/gifts" },
-    { name: "All Products", path: "/category/all" },
+    { name: "Table Linen", path: "/category/tablelinen" },
+    { name: "Curtains & Drapes", path: "/category/curtains" },
+    { name: "Blankets & Throws", path: "/category/blankets" },
+    { name: "B2B Orders", path: "/b2b" },
   ],
   "Company": [
     { name: "About Us", path: "/about" },
@@ -62,20 +62,20 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <img src={logoIcon} alt="NoidaHaat" className="w-8 h-8" />
-              <span className="text-lg font-bold text-foreground">Noida</span>
-              <span className="text-lg font-bold text-primary">Haat</span>
+              <img src={logoIcon} alt="Textile Twist" className="w-8 h-8" />
+              <span className="text-lg font-bold text-foreground">Textile</span>
+              <span className="text-lg font-bold text-primary">Twist</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-4">
-              {t("tagline")}. Authentic handcrafted products from skilled artisans across India.
+              {t("tagline")}. Premium bed linen, luxury towels, artisanal rugs & designer cushions.
             </p>
             <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-              <MapPin className="w-3 h-3 text-primary" />
-              Sector 62, Noida, UP
+              <Mail className="w-3 h-3 text-primary" />
+              hello@textiletwist.com
             </div>
-            <a href="tel:09876543210" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors mb-1">
+            <a href="tel:+919509317543" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors mb-1">
               <Phone className="w-3 h-3 text-primary" />
-              98765 43210
+              +91 95093 17543
             </a>
 
             {socialLinks.length > 0 && (
@@ -108,9 +108,9 @@ export function Footer() {
         </div>
 
         <div className="border-t border-foreground/[0.05] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">© 2025 NoidaHaat — Sector 62, Noida, UP 201301</p>
+          <p className="text-xs text-muted-foreground">© 2025 Textile Twist — Luxury Home Textiles</p>
           <div className="flex gap-4">
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/919509317543" target="_blank" rel="noopener noreferrer"
               className="text-xs text-green-500 hover:text-green-400 transition-colors font-medium">WhatsApp</a>
             <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy</a>
             <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms</a>

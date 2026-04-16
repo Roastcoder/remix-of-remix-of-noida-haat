@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, EyeOff, LogIn, UserPlus, MapPin, Phone } from "lucide-react";
+import { Eye, EyeOff, LogIn, UserPlus, Mail, Phone } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import loginHero from "@/assets/login-hero-haat.jpg";
-import logoIcon from "@/assets/logo-noidahaat.png";
+import logoIcon from "@/assets/logo-textiletwist.png";
 
 const DEMO_ACCOUNTS = [
-  { label: "Admin", email: "admin@noidahaat.com", password: "admin123" },
-  { label: "Telecaller", email: "telecaller@noidahaat.com", password: "tele123" },
-  { label: "Customer", email: "customer@noidahaat.com", password: "cust123" },
+  { label: "Admin", email: "admin@textiletwist.com", password: "admin123" },
+  { label: "Telecaller", email: "telecaller@textiletwist.com", password: "tele123" },
+  { label: "Customer", email: "customer@textiletwist.com", password: "cust123" },
 ];
 
 export default function Login() {
@@ -64,17 +64,17 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-background flex">
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
-        <img src={loginHero} alt="NoidaHaat handicraft store" className="absolute inset-0 w-full h-full object-cover" width={960} height={1280} />
+        <img src={loginHero} alt="Textile Twist luxury showroom" className="absolute inset-0 w-full h-full object-cover" width={960} height={1280} />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent" />
         <div className="relative z-10 flex flex-col justify-end p-10 text-white">
           <div className="flex items-center gap-3 mb-4">
-            <img src={logoIcon} alt="NoidaHaat" className="w-10 h-10" />
-            <span className="text-2xl font-bold tracking-tight text-white">NoidaHaat</span>
+            <img src={logoIcon} alt="Textile Twist" className="w-10 h-10" />
+            <span className="text-2xl font-bold tracking-tight text-white">Textile Twist</span>
           </div>
-          <p className="text-lg text-white/80 mb-6 max-w-md">India's Handcrafted Marketplace — Pottery, Jewelry, Textiles, Art & More</p>
+          <p className="text-lg text-white/80 mb-6 max-w-md">Luxury Home Textiles — Premium Bed Linen, Towels, Rugs & Cushions</p>
           <div className="flex flex-col gap-2 text-sm text-white/60">
-            <div className="flex items-center gap-2"><MapPin className="w-4 h-4" /><span>Sector 62, Noida, UP</span></div>
-            <div className="flex items-center gap-2"><Phone className="w-4 h-4" /><span>98765 43210</span></div>
+            <div className="flex items-center gap-2"><Mail className="w-4 h-4" /><span>hello@textiletwist.com</span></div>
+            <div className="flex items-center gap-2"><Phone className="w-4 h-4" /><span>+91 95093 17543</span></div>
           </div>
         </div>
       </div>
@@ -82,8 +82,8 @@ export default function Login() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-10">
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <img src={logoIcon} alt="NoidaHaat" className="w-8 h-8" />
-            <span className="text-xl font-bold text-foreground">NoidaHaat</span>
+            <img src={logoIcon} alt="Textile Twist" className="w-8 h-8" />
+            <span className="text-xl font-bold text-foreground">Textile Twist</span>
           </div>
 
           <div className="flex gap-1 mb-8 bg-surface rounded-xl p-1">
@@ -95,7 +95,7 @@ export default function Login() {
             {mode === "login" ? (
               <motion.div key="login" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
                 <h1 className="text-2xl font-bold text-foreground mb-1">Welcome back</h1>
-                <p className="text-sm text-muted-foreground mb-6">Sign in to your NoidaHaat account</p>
+                <p className="text-sm text-muted-foreground mb-6">Sign in to your Textile Twist account</p>
 
                 <div className="mb-6">
                   <p className="text-xs font-medium text-muted-foreground mb-2">Quick Demo Login</p>
@@ -133,7 +133,7 @@ export default function Login() {
             ) : (
               <motion.div key="signup" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
                 <h1 className="text-2xl font-bold text-foreground mb-1">Create an account</h1>
-                <p className="text-sm text-muted-foreground mb-6">Join NoidaHaat to shop handcrafted treasures</p>
+                <p className="text-sm text-muted-foreground mb-6">Join Textile Twist for luxury textile shopping</p>
                 <form onSubmit={handleSignup} className="space-y-4">
                   <div>
                     <label className="text-xs font-medium text-muted-foreground mb-1.5 block">Full Name</label>
