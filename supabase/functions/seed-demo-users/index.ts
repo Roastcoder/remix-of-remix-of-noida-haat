@@ -16,15 +16,14 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, serviceRoleKey);
 
     const demoUsers = [
-      { email: "admin@chauhaan.com", password: "admin123", full_name: "Admin User", role: "admin" },
-      { email: "telecaller@chauhaan.com", password: "tele123", full_name: "Telecaller User", role: "telecaller" },
-      { email: "customer@chauhaan.com", password: "cust123", full_name: "Customer User", role: "customer" },
+      { email: "admin@textiletwist.com", password: "admin123", full_name: "Admin User", role: "admin" },
+      { email: "telecaller@textiletwist.com", password: "tele123", full_name: "Telecaller User", role: "telecaller" },
+      { email: "customer@textiletwist.com", password: "cust123", full_name: "Customer User", role: "customer" },
     ];
 
     const results = [];
 
     for (const demo of demoUsers) {
-      // Check if user already exists
       const { data: existingUsers } = await supabase.auth.admin.listUsers();
       const existing = existingUsers?.users?.find((u: any) => u.email === demo.email);
       
@@ -33,7 +32,6 @@ Deno.serve(async (req) => {
         continue;
       }
 
-      // Create user
       const { data: userData, error: userError } = await supabase.auth.admin.createUser({
         email: demo.email,
         password: demo.password,
@@ -48,7 +46,6 @@ Deno.serve(async (req) => {
 
       const userId = userData.user.id;
 
-      // Insert role
       await supabase.from("user_roles").upsert({
         user_id: userId,
         role: demo.role,
