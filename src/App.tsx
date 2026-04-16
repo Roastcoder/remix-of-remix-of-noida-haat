@@ -20,6 +20,7 @@ import Services from "./pages/Services";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import B2B from "./pages/B2B";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import AdminLayout from "./pages/admin/AdminLayout";
