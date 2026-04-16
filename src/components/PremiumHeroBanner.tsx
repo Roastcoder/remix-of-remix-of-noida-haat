@@ -9,9 +9,9 @@ import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
 
 const fallbackSlides = [
-  { image: hero1, title: "Handcrafted Treasures from India", subtitle: "Pottery, textiles, jewelry & more from skilled artisans", cta: "Shop Now", ctaLink: "/category/pottery" },
-  { image: hero2, title: "Handloom Textiles & Fabrics", subtitle: "Authentic sarees, dupattas & block prints", cta: "Explore Textiles", ctaLink: "/category/textiles" },
-  { image: hero3, title: "Artisan Jewelry Collection", subtitle: "Oxidised, beaded & tribal jewelry handmade with love", cta: "Shop Jewelry", ctaLink: "/category/jewelry" },
+  { image: hero1, title: "Premium Bed Linen Collection", subtitle: "Egyptian cotton bedsheets with luxurious gold embroidery", cta: "Shop Now", ctaLink: "/category/bedlinen" },
+  { image: hero2, title: "Luxury Towel Collection", subtitle: "Plush Egyptian cotton towels for the ultimate spa experience", cta: "Explore Towels", ctaLink: "/category/towels" },
+  { image: hero3, title: "Designer Cushion Collection", subtitle: "Handcrafted velvet cushions with intricate gold embroidery", cta: "Shop Cushions", ctaLink: "/category/cushions" },
 ];
 
 export function PremiumHeroBanner() {

@@ -86,7 +86,7 @@ function ProductModal({ product, onClose }: { product: any; onClose: () => void 
   const [imageUrls, setImageUrls] = useState<string[]>(product?.images || []);
   const [form, setForm] = useState({
     name: product?.name || "",
-    category: product?.category || "pottery",
+    category: product?.category || "Bed Linen",
     brand: product?.brand || "",
     price: product?.price || 0,
     description: product?.description || "",
@@ -97,32 +97,22 @@ function ProductModal({ product, onClose }: { product: any; onClose: () => void 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
-
     setUploading(true);
     const newUrls: string[] = [];
-
     for (const file of Array.from(files)) {
       const ext = file.name.split(".").pop();
       const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
       const { error } = await supabase.storage.from("product-images").upload(fileName, file);
-
-      if (error) {
-        toast.error(`Failed to upload ${file.name}`);
-        continue;
-      }
-
+      if (error) { toast.error(`Failed to upload ${file.name}`); continue; }
       const { data: urlData } = supabase.storage.from("product-images").getPublicUrl(fileName);
       newUrls.push(urlData.publicUrl);
     }
-
     setImageUrls(prev => [...prev, ...newUrls]);
     setUploading(false);
     if (newUrls.length > 0) toast.success(`${newUrls.length} image(s) uploaded`);
   };
 
-  const removeImage = (index: number) => {
-    setImageUrls(prev => prev.filter((_, i) => i !== index));
-  };
+  const removeImage = (index: number) => setImageUrls(prev => prev.filter((_, i) => i !== index));
 
   const mutation = useMutation({
     mutationFn: async () => {
@@ -147,27 +137,21 @@ function ProductModal({ product, onClose }: { product: any; onClose: () => void 
         <h2 className="text-lg font-bold text-foreground mb-4">{product ? "Edit Product" : "Add Product"}</h2>
         <div className="space-y-3">
           <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="Product Name *" className="w-full px-4 py-2.5 bg-background rounded-xl text-sm text-foreground border border-border outline-none" />
-
           <select value={form.category} onChange={e => setForm(f => ({ ...f, category: e.target.value }))} className="w-full px-4 py-2.5 bg-background rounded-xl text-sm text-foreground border border-border outline-none">
-            <option value="pottery">Pottery & Clay</option>
-            <option value="jewelry">Jewelry</option>
-            <option value="textiles">Textiles</option>
-            <option value="woodcraft">Woodcraft</option>
-            <option value="art">Art & Paintings</option>
-            <option value="homedecor">Home Decor</option>
-            <option value="gifts">Gifts</option>
+            <option value="Bed Linen">Premium Bed Linen</option>
+            <option value="Towels">Luxury Towels</option>
+            <option value="Rugs">Artisanal Rugs</option>
+            <option value="Cushions">Designer Cushions</option>
+            <option value="Table Linen">Table Linen</option>
+            <option value="Curtains">Curtains & Drapes</option>
+            <option value="Blankets">Blankets & Throws</option>
           </select>
-
           <input value={form.brand} onChange={e => setForm(f => ({ ...f, brand: e.target.value }))} placeholder="Brand" className="w-full px-4 py-2.5 bg-background rounded-xl text-sm text-foreground border border-border outline-none" />
-
           <div className="grid grid-cols-2 gap-3">
             <input type="number" value={form.price} onChange={e => setForm(f => ({ ...f, price: Number(e.target.value) }))} placeholder="Price" className="w-full px-4 py-2.5 bg-background rounded-xl text-sm text-foreground border border-border outline-none" />
             <input type="number" value={form.stock_quantity} onChange={e => setForm(f => ({ ...f, stock_quantity: Number(e.target.value) }))} placeholder="Stock Qty" className="w-full px-4 py-2.5 bg-background rounded-xl text-sm text-foreground border border-border outline-none" />
           </div>
-
           <textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="Description" rows={3} className="w-full px-4 py-2.5 bg-background rounded-xl text-sm text-foreground border border-border outline-none resize-none" />
-
-          {/* Image Upload */}
           <div>
             <label className="text-xs font-medium text-muted-foreground mb-2 block">Product Images</label>
             <div className="flex flex-wrap gap-2 mb-2">
@@ -179,11 +163,7 @@ function ProductModal({ product, onClose }: { product: any; onClose: () => void 
                   </button>
                 </div>
               ))}
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                disabled={uploading}
-                className="w-20 h-20 rounded-lg border-2 border-dashed border-border hover:border-primary/40 flex flex-col items-center justify-center gap-1 text-muted-foreground hover:text-primary transition-colors"
-              >
+              <button onClick={() => fileInputRef.current?.click()} disabled={uploading} className="w-20 h-20 rounded-lg border-2 border-dashed border-border hover:border-primary/40 flex flex-col items-center justify-center gap-1 text-muted-foreground hover:text-primary transition-colors">
                 <Upload className="w-4 h-4" />
                 <span className="text-[10px]">{uploading ? "..." : "Upload"}</span>
               </button>

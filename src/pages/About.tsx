@@ -4,16 +4,16 @@ import { Users, Award, MapPin, Clock } from "lucide-react";
 import bannerArtisan from "@/assets/banner-artisan.jpg";
 
 const stats = [
-  { icon: Users, label: "Happy Customers", value: "10,000+" },
-  { icon: Award, label: "Artisans Supported", value: "200+" },
-  { icon: MapPin, label: "States Covered", value: "15+" },
-  { icon: Clock, label: "Products", value: "500+" },
+  { icon: Users, label: "Happy Customers", value: "15,000+" },
+  { icon: Award, label: "Premium Collections", value: "50+" },
+  { icon: MapPin, label: "Cities Served", value: "100+" },
+  { icon: Clock, label: "Products", value: "1,200+" },
 ];
 
 const team = [
-  { name: "Ritu Verma", role: "Founder & CEO", bio: "Passionate about preserving Indian handicraft traditions, Ritu started NoidaHaat to connect artisans directly with conscious consumers." },
-  { name: "Amit Kumar", role: "Head of Artisan Relations", bio: "Amit travels across rural India identifying talented artisans and ensuring fair-trade practices in every partnership." },
-  { name: "Sneha Patel", role: "Creative Director", bio: "With a background in textile design, Sneha curates the collection and works with artisans to create contemporary designs." },
+  { name: "Anika Sharma", role: "Founder & CEO", bio: "A textile connoisseur with 15 years in luxury fabrics, Anika founded Textile Twist to bring premium home textiles to every Indian household." },
+  { name: "Vikram Mehta", role: "Head of Design", bio: "Vikram leads our design studio, creating contemporary textile patterns that blend traditional weaving techniques with modern aesthetics." },
+  { name: "Priya Kapoor", role: "Head of Sourcing", bio: "Priya works directly with artisan weavers across India, ensuring every fabric meets our exacting quality standards." },
 ];
 
 export default function About() {
@@ -22,12 +22,12 @@ export default function About() {
       <section className="w-full">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-3">
           <div className="relative rounded-2xl overflow-hidden">
-            <img src={bannerArtisan} alt="About NoidaHaat" className="w-full h-[200px] sm:h-[280px] md:h-[320px] object-cover" />
+            <img src={bannerArtisan} alt="About Textile Twist" className="w-full h-[200px] sm:h-[280px] md:h-[320px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">
               <div className="px-6 sm:px-10 md:px-12">
                 <p className="text-white/60 text-xs uppercase tracking-widest mb-2">Our Story</p>
-                <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-tight mb-3">Preserving India's Craft Heritage</h1>
-                <p className="text-white/80 text-sm sm:text-base max-w-lg">Connecting skilled artisans with conscious consumers, one handcrafted piece at a time.</p>
+                <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-tight mb-3">The Art of Fine Living</h1>
+                <p className="text-white/80 text-sm sm:text-base max-w-lg">Curating the finest home textiles from master artisans, delivered to your doorstep.</p>
               </div>
             </div>
           </div>
@@ -56,17 +56,17 @@ export default function About() {
             <AnimatedSection>
               <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">Our Mission</h2>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                At NoidaHaat, we believe every handcrafted product carries a story — of the artisan's skill, their cultural heritage, and centuries of tradition. We're on a mission to bring these stories to your home.
+                At Textile Twist, we believe your home deserves the finest textiles. We source premium fabrics — Egyptian cotton, silk, cashmere, and artisanal weaves — directly from master craftspeople.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                By connecting artisans directly with customers, we ensure fair wages, sustainable practices, and the preservation of dying art forms. Every purchase you make supports a family and keeps a tradition alive.
+                Every thread tells a story of quality, craftsmanship, and timeless elegance. Our curated collections transform your living spaces into luxury retreats.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
               <div className="bg-card rounded-xl p-8 text-center border border-border">
-                <p className="text-5xl font-bold text-primary mb-2">200+</p>
-                <p className="text-lg font-medium text-foreground">Artisans Empowered</p>
-                <p className="text-sm text-muted-foreground mt-1">Across 15+ states of India</p>
+                <p className="text-5xl font-bold text-primary mb-2">50+</p>
+                <p className="text-lg font-medium text-foreground">Artisan Partners</p>
+                <p className="text-sm text-muted-foreground mt-1">Master weavers across India</p>
               </div>
             </AnimatedSection>
           </div>

@@ -20,6 +20,7 @@ import Services from "./pages/Services";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import B2B from "./pages/B2B";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import AdminLayout from "./pages/admin/AdminLayout";
@@ -77,6 +78,7 @@ const App = () => (
               <Route path="/blog" element={<StorefrontLayout><Blog /></StorefrontLayout>} />
               <Route path="/contact" element={<StorefrontLayout><Contact /></StorefrontLayout>} />
               <Route path="/careers" element={<StorefrontLayout><Careers /></StorefrontLayout>} />
+              <Route path="/b2b" element={<StorefrontLayout><B2B /></StorefrontLayout>} />
               <Route path="/login" element={<Login />} />
 
               {/* Admin Panel */}
