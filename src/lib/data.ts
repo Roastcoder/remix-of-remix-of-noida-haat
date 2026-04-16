@@ -1,10 +1,10 @@
-import catPottery from "@/assets/cat-pottery.jpg";
-import catJewelry from "@/assets/cat-jewelry.jpg";
-import catTextiles from "@/assets/cat-textiles.jpg";
-import catWoodcraft from "@/assets/cat-woodcraft.jpg";
-import catArt from "@/assets/cat-art.jpg";
-import catHomedecor from "@/assets/cat-homedecor.jpg";
-import catGifts from "@/assets/cat-gifts.jpg";
+import catBedlinen from "@/assets/cat-bedlinen.jpg";
+import catTowels from "@/assets/cat-towels.jpg";
+import catRugs from "@/assets/cat-rugs.jpg";
+import catCushions from "@/assets/cat-cushions.jpg";
+import catTablelinen from "@/assets/cat-tablelinen.jpg";
+import catCurtains from "@/assets/cat-curtains.jpg";
+import catBlankets from "@/assets/cat-blankets.jpg";
 
 import bannerArtisan from "@/assets/banner-artisan.jpg";
 import bannerEco from "@/assets/banner-eco.jpg";
@@ -27,13 +27,13 @@ export interface Product {
 }
 
 export const categories = [
-  { name: "Pottery & Clay", slug: "pottery", image: catPottery },
-  { name: "Jewelry", slug: "jewelry", image: catJewelry },
-  { name: "Textiles", slug: "textiles", image: catTextiles },
-  { name: "Woodcraft", slug: "woodcraft", image: catWoodcraft },
-  { name: "Art & Paintings", slug: "art", image: catArt },
-  { name: "Home Decor", slug: "homedecor", image: catHomedecor },
-  { name: "Gifts", slug: "gifts", image: catGifts },
+  { name: "Premium Bed Linen", slug: "bedlinen", image: catBedlinen },
+  { name: "Luxury Towels", slug: "towels", image: catTowels },
+  { name: "Artisanal Rugs", slug: "rugs", image: catRugs },
+  { name: "Designer Cushions", slug: "cushions", image: catCushions },
+  { name: "Table Linen", slug: "tablelinen", image: catTablelinen },
+  { name: "Curtains & Drapes", slug: "curtains", image: catCurtains },
+  { name: "Blankets & Throws", slug: "blankets", image: catBlankets },
 ];
 
 export interface Service {
@@ -46,32 +46,32 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: "custom-pottery",
-    name: "Custom Pottery",
-    description: "Get personalized clay items made by master potters. Custom diyas, vases, and decorative pieces for your home or events.",
-    image: catPottery,
+    id: "custom-bedding",
+    name: "Custom Bedding",
+    description: "Get bespoke bed linen sets tailored to your exact specifications — thread count, fabric, size, and embroidery.",
+    image: catBedlinen,
+    icon: "bed",
+  },
+  {
+    id: "interior-consultation",
+    name: "Interior Consultation",
+    description: "Our textile experts help you curate the perfect home textile collection matching your interior design vision.",
+    image: catCurtains,
     icon: "palette",
-  },
-  {
-    id: "jewelry-workshop",
-    name: "Jewelry Workshops",
-    description: "Learn the art of handmade jewelry making. Weekend workshops for oxidised, beaded, and resin jewelry techniques.",
-    image: catJewelry,
-    icon: "gem",
-  },
-  {
-    id: "custom-textiles",
-    name: "Custom Textiles",
-    description: "Order block-printed fabrics, custom dupattas, and personalized textile pieces in your preferred colors and patterns.",
-    image: catTextiles,
-    icon: "scissors",
   },
   {
     id: "corporate-gifting",
     name: "Corporate Gifting",
-    description: "Bulk orders for handcrafted corporate gifts, festival hampers, and customized gift boxes for businesses.",
-    image: catGifts,
+    description: "Premium textile gift hampers and bulk orders for corporate events, weddings, and special occasions.",
+    image: catTowels,
     icon: "gift",
+  },
+  {
+    id: "fabric-sourcing",
+    name: "Fabric Sourcing",
+    description: "Access our curated network of master weavers for rare and artisanal fabrics — silk, linen, and organic cotton.",
+    image: catRugs,
+    icon: "scissors",
   },
 ];
 
@@ -79,21 +79,21 @@ export const products: Product[] = [];
 
 export const testimonials = [
   {
-    name: "Priya Sharma",
+    name: "Priya Malhotra",
     role: "Interior Designer",
-    text: "NoidaHaat has the most authentic handcrafted pieces I've found online. The Madhubani paintings are museum-quality!",
+    text: "Textile Twist's bed linen collection is unmatched in quality. The Egyptian cotton sheets are absolutely divine!",
     rating: 5,
   },
   {
-    name: "Rahul Gupta",
-    role: "Gift Shop Owner",
-    text: "I source all my festival hampers from NoidaHaat. The quality is consistent and customers love the artisan touch.",
+    name: "Rajesh Sharma",
+    role: "Hospitality Director",
+    text: "We source all our hotel towels from Textile Twist. The consistency in quality is remarkable across every batch.",
     rating: 5,
   },
   {
-    name: "Sneha Patel",
-    role: "Craft Enthusiast",
-    text: "From jewelry to home decor, every piece tells a story. Supporting Indian artisans has never been easier!",
+    name: "Ananya Patel",
+    role: "Home Decor Enthusiast",
+    text: "From cushions to curtains, every piece from Textile Twist adds a touch of luxury to our home. Absolutely love it!",
     rating: 5,
   },
 ];
@@ -101,34 +101,34 @@ export const testimonials = [
 export const blogPosts = [
   {
     id: "1",
-    title: "The Art of Madhubani Painting: A Complete Guide",
-    excerpt: "Discover the ancient art form from Bihar that's captivating the world with its intricate patterns and vibrant colors.",
+    title: "The Ultimate Guide to Thread Count: What Really Matters",
+    excerpt: "Discover what thread count really means for your bed linen and why higher isn't always better.",
     date: "March 15, 2026",
-    category: "Art",
+    category: "Fabric Care",
     readTime: "5 min read",
   },
   {
     id: "2",
-    title: "5 Ways to Style Handloom Sarees for Modern Occasions",
-    excerpt: "Handloom sarees are timeless. Here's how to wear them for both casual outings and formal events.",
+    title: "5 Ways to Style Luxury Cushions in Your Living Room",
+    excerpt: "Transform your living space with these expert tips on arranging and mixing designer cushions.",
     date: "March 10, 2026",
-    category: "Fashion",
+    category: "Styling Tips",
     readTime: "4 min read",
   },
   {
     id: "3",
-    title: "Why Handmade Pottery is Making a Comeback",
-    excerpt: "From eco-consciousness to aesthetic appeal, learn why handmade pottery is trending in Indian homes.",
+    title: "Egyptian Cotton vs Supima: Which is Right for You?",
+    excerpt: "A comprehensive comparison of the world's finest cottons to help you make the perfect choice.",
     date: "March 5, 2026",
-    category: "Home Decor",
-    readTime: "3 min read",
+    category: "Fabric Care",
+    readTime: "6 min read",
   },
   {
     id: "4",
-    title: "Supporting Indian Artisans: The Impact of Your Purchase",
-    excerpt: "Every handcrafted product you buy sustains a family and preserves centuries-old traditions.",
+    title: "How to Choose the Perfect Rug for Every Room",
+    excerpt: "Size, material, pattern — our expert guide to selecting artisanal rugs that complement your space.",
     date: "February 28, 2026",
-    category: "Impact",
-    readTime: "6 min read",
+    category: "Home Decor",
+    readTime: "5 min read",
   },
 ];
