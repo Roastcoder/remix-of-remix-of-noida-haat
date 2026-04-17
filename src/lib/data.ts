@@ -6,9 +6,6 @@ import catTablelinen from "@/assets/cat-tablelinen.jpg";
 import catCurtains from "@/assets/cat-curtains.jpg";
 import catBlankets from "@/assets/cat-blankets.jpg";
 
-import bannerArtisan from "@/assets/banner-artisan.jpg";
-import bannerEco from "@/assets/banner-eco.jpg";
-
 export interface Product {
   id: string;
   name: string;
@@ -16,7 +13,12 @@ export interface Product {
   price: number;
   originalPrice?: number;
   image: string;
+  images?: string[];
   brand: string;
+  sku?: string;
+  material?: string;
+  dimensions?: string;
+  variants?: any[];
   ram?: string;
   storage?: string;
   specs: string[];
@@ -45,90 +47,18 @@ export interface Service {
 }
 
 export const services: Service[] = [
-  {
-    id: "custom-bedding",
-    name: "Custom Bedding",
-    description: "Get bespoke bed linen sets tailored to your exact specifications — thread count, fabric, size, and embroidery.",
-    image: catBedlinen,
-    icon: "bed",
-  },
-  {
-    id: "interior-consultation",
-    name: "Interior Consultation",
-    description: "Our textile experts help you curate the perfect home textile collection matching your interior design vision.",
-    image: catCurtains,
-    icon: "palette",
-  },
-  {
-    id: "corporate-gifting",
-    name: "Corporate Gifting",
-    description: "Premium textile gift hampers and bulk orders for corporate events, weddings, and special occasions.",
-    image: catTowels,
-    icon: "gift",
-  },
-  {
-    id: "fabric-sourcing",
-    name: "Fabric Sourcing",
-    description: "Access our curated network of master weavers for rare and artisanal fabrics — silk, linen, and organic cotton.",
-    image: catRugs,
-    icon: "scissors",
-  },
+  { id: "custom-bedding", name: "Custom Bedding", description: "Get bespoke bed linen sets tailored to your exact specifications — thread count, fabric, size, and embroidery.", image: catBedlinen, icon: "bed" },
+  { id: "interior-consultation", name: "Interior Consultation", description: "Our textile experts help you curate the perfect home textile collection matching your interior design vision.", image: catCurtains, icon: "palette" },
+  { id: "corporate-gifting", name: "Corporate Gifting", description: "Premium textile gift hampers and bulk orders for corporate events, weddings, and special occasions.", image: catTowels, icon: "gift" },
+  { id: "fabric-sourcing", name: "Fabric Sourcing", description: "Access our curated network of master weavers for rare and artisanal fabrics — silk, linen, and organic cotton.", image: catRugs, icon: "scissors" },
 ];
 
 export const products: Product[] = [];
 
 export const testimonials = [
-  {
-    name: "Priya Malhotra",
-    role: "Interior Designer",
-    text: "Textile Twist's bed linen collection is unmatched in quality. The Egyptian cotton sheets are absolutely divine!",
-    rating: 5,
-  },
-  {
-    name: "Rajesh Sharma",
-    role: "Hospitality Director",
-    text: "We source all our hotel towels from Textile Twist. The consistency in quality is remarkable across every batch.",
-    rating: 5,
-  },
-  {
-    name: "Ananya Patel",
-    role: "Home Decor Enthusiast",
-    text: "From cushions to curtains, every piece from Textile Twist adds a touch of luxury to our home. Absolutely love it!",
-    rating: 5,
-  },
+  { name: "Priya Malhotra", role: "Interior Designer", text: "Textile Twist's bed linen collection is unmatched in quality. The Egyptian cotton sheets are absolutely divine!", rating: 5 },
+  { name: "Rajesh Sharma", role: "Hospitality Director", text: "We source all our hotel towels from Textile Twist. The consistency in quality is remarkable across every batch.", rating: 5 },
+  { name: "Ananya Patel", role: "Home Decor Enthusiast", text: "From cushions to curtains, every piece from Textile Twist adds a touch of luxury to our home. Absolutely love it!", rating: 5 },
 ];
 
-export const blogPosts = [
-  {
-    id: "1",
-    title: "The Ultimate Guide to Thread Count: What Really Matters",
-    excerpt: "Discover what thread count really means for your bed linen and why higher isn't always better.",
-    date: "March 15, 2026",
-    category: "Fabric Care",
-    readTime: "5 min read",
-  },
-  {
-    id: "2",
-    title: "5 Ways to Style Luxury Cushions in Your Living Room",
-    excerpt: "Transform your living space with these expert tips on arranging and mixing designer cushions.",
-    date: "March 10, 2026",
-    category: "Styling Tips",
-    readTime: "4 min read",
-  },
-  {
-    id: "3",
-    title: "Egyptian Cotton vs Supima: Which is Right for You?",
-    excerpt: "A comprehensive comparison of the world's finest cottons to help you make the perfect choice.",
-    date: "March 5, 2026",
-    category: "Fabric Care",
-    readTime: "6 min read",
-  },
-  {
-    id: "4",
-    title: "How to Choose the Perfect Rug for Every Room",
-    excerpt: "Size, material, pattern — our expert guide to selecting artisanal rugs that complement your space.",
-    date: "February 28, 2026",
-    category: "Home Decor",
-    readTime: "5 min read",
-  },
-];
+export const blogPosts = [];

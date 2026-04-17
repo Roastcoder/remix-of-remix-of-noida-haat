@@ -26,44 +26,85 @@ export function PremiumHeroBanner() {
   const next = useCallback(() => setCurrent((p) => (p + 1) % slides.length), [slides.length]);
   const prev = useCallback(() => setCurrent((p) => (p - 1 + slides.length) % slides.length), [slides.length]);
 
-  useEffect(() => { const timer = setInterval(next, 5000); return () => clearInterval(timer); }, [next]);
+  useEffect(() => { const timer = setInterval(next, 5500); return () => clearInterval(timer); }, [next]);
   useEffect(() => { if (current >= slides.length) setCurrent(0); }, [slides.length, current]);
 
   const slide = slides[current] || slides[0];
   if (!slide) return null;
 
   return (
-    <section className="w-full bg-muted/20">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-3">
-        <div className="relative rounded-2xl overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="relative">
-              <img src={slide.image} alt={slide.title} className="w-full h-[220px] sm:h-[320px] md:h-[400px] lg:h-[460px] object-cover" width={1920} height={640} />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-              <div className="absolute inset-0 flex items-center">
-                <div className="px-6 sm:px-10 md:px-16 max-w-xl">
-                  <p className="text-white/60 text-[10px] sm:text-xs font-semibold uppercase tracking-widest mb-2">{t("tagline")}</p>
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-2 sm:mb-4 drop-shadow-md">{slide.title}</h1>
-                  <p className="text-white/80 text-xs sm:text-sm md:text-base mb-4 sm:mb-6 drop-shadow max-w-md">{slide.subtitle}</p>
-                  <Link to={slide.ctaLink} className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-primary text-primary-foreground rounded-lg font-semibold text-xs sm:text-sm hover:opacity-90 transition-colors shadow-lg">{slide.cta}</Link>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+    <section className="relative w-full h-[100svh] min-h-[560px] overflow-hidden bg-foreground">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{ duration: 1.1, ease: "easeOut" }}
+          className="absolute inset-0"
+        >
+          <img
+            src={slide.image}
+            alt={slide.title}
+            className="absolute inset-0 w-full h-full object-cover"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        </motion.div>
+      </AnimatePresence>
 
-          <button onClick={prev} className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors z-10">
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
-          <button onClick={next} className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors z-10">
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
-
-          <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-            {slides.map((_, i) => (
-              <button key={i} onClick={() => setCurrent(i)} className={`h-2 rounded-full transition-all ${i === current ? "bg-white w-6" : "bg-white/40 w-2"}`} />
-            ))}
+      <div className="relative h-full max-w-[1400px] mx-auto px-6 sm:px-10 md:px-16 flex items-center">
+        <motion.div
+          key={`text-${current}`}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-2xl"
+        >
+          <p className="text-primary-foreground/70 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.3em] mb-4">
+            {t("tagline")}
+          </p>
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-5 sm:mb-7 drop-shadow-lg">
+            {slide.title}
+          </h1>
+          <p className="text-white/80 text-sm sm:text-base md:text-lg mb-8 max-w-lg leading-relaxed">
+            {slide.subtitle}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to={slide.ctaLink}
+              className="inline-block px-8 sm:px-10 py-3.5 bg-primary text-primary-foreground rounded-full font-semibold text-sm hover:opacity-90 transition-all shadow-2xl hover:scale-[1.02]"
+            >
+              {slide.cta}
+            </Link>
+            <Link
+              to="/about"
+              className="inline-block px-8 sm:px-10 py-3.5 border border-white/30 text-white rounded-full font-semibold text-sm hover:bg-white/10 transition-all backdrop-blur-sm"
+            >
+              Our Story
+            </Link>
           </div>
-        </div>
+        </motion.div>
+      </div>
+
+      <button onClick={prev} className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-colors z-10 border border-white/20">
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button onClick={next} className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-colors z-10 border border-white/20">
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-1.5 rounded-full transition-all ${i === current ? "bg-primary w-10" : "bg-white/40 w-2 hover:bg-white/60"}`}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
       </div>
     </section>
   );
