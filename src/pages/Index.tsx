@@ -77,9 +77,11 @@ export default function Index() {
     ? dbPromos.map(b => ({ image: b.image_url, title: b.title, subtitle: b.subtitle || "", link: b.cta_link }))
     : fallbackPromos;
 
+  const normalize = (s: string) => s.toLowerCase().replace(/[\s-]+/g, "");
   const getProductsByCategory = (slug: string) => {
     const dbCat = categorySlugToDb[slug] || slug;
-    return products.filter(p => p.category.toLowerCase() === dbCat.toLowerCase());
+    const target = normalize(dbCat);
+    return products.filter(p => normalize(p.category) === target);
   };
 
   return (
