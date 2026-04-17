@@ -18,6 +18,7 @@ import Cart from "./pages/Cart";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import B2B from "./pages/B2B";
@@ -76,6 +77,7 @@ const App = () => (
               <Route path="/about" element={<StorefrontLayout><About /></StorefrontLayout>} />
               <Route path="/services" element={<StorefrontLayout><Services /></StorefrontLayout>} />
               <Route path="/blog" element={<StorefrontLayout><Blog /></StorefrontLayout>} />
+              <Route path="/blog/:slug" element={<StorefrontLayout><BlogDetail /></StorefrontLayout>} />
               <Route path="/contact" element={<StorefrontLayout><Contact /></StorefrontLayout>} />
               <Route path="/careers" element={<StorefrontLayout><Careers /></StorefrontLayout>} />
               <Route path="/b2b" element={<StorefrontLayout><B2B /></StorefrontLayout>} />
