@@ -107,20 +107,38 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Shop by Collection */}
+      {/* Shop by Collection - horizontal scroll on mobile, grid on desktop */}
       <section className="py-6 sm:py-8 bg-background">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-lg sm:text-2xl font-bold text-foreground mb-5">{t("shopByCategory")}</h2>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-2 sm:gap-4">
+          <h2 className="font-serif text-xl sm:text-3xl font-bold text-foreground mb-5">{t("shopByCategory")}</h2>
+          {/* Mobile: horizontal scroll */}
+          <div className="md:hidden -mx-4 px-4 overflow-x-auto scrollbar-hide">
+            <div className="flex gap-3 pb-2" style={{ width: "max-content" }}>
+              {categories.map((cat, i) => (
+                <motion.div key={cat.slug} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }} transition={{ delay: i * 0.03 }}>
+                  <Link to={`/category/${cat.slug}`}
+                    className="flex flex-col items-center gap-2 p-3 rounded-xl bg-card border border-border hover:shadow-lg hover:border-primary/30 transition-all group w-[100px]">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden">
+                      <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" loading="lazy" />
+                    </div>
+                    <span className="text-[10px] font-medium text-foreground text-center leading-tight line-clamp-2">{cat.name}</span>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          {/* Desktop: grid */}
+          <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-7 gap-4">
             {categories.map((cat, i) => (
               <motion.div key={cat.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.03 }}>
                 <Link to={`/category/${cat.slug}`}
-                  className="flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl bg-card border border-border hover:shadow-lg hover:border-primary/20 transition-all group">
-                  <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden">
+                  className="flex flex-col items-center gap-3 p-4 rounded-xl bg-card border border-border hover:shadow-lg hover:border-primary/20 transition-all group">
+                  <div className="w-20 h-20 rounded-xl overflow-hidden">
                     <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" loading="lazy" />
                   </div>
-                  <span className="text-[10px] sm:text-xs font-medium text-foreground text-center leading-tight">{cat.name}</span>
+                  <span className="text-xs font-medium text-foreground text-center leading-tight">{cat.name}</span>
                 </Link>
               </motion.div>
             ))}
