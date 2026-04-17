@@ -180,7 +180,7 @@ function CallingModal({ lead, onClose }: { lead: Lead; onClose: () => void }) {
           <a href={`tel:${lead.phone}`} className="flex-1 flex items-center justify-center gap-2 py-3 bg-green-600 text-white rounded-xl font-semibold text-sm hover:bg-green-700 transition-colors">
             <Phone className="w-4 h-4" /> Call
           </a>
-          <a href={`https://wa.me/91${lead.phone.replace(/\D/g, "")}?text=${encodeURIComponent("Hi, I'm calling from Chauhaan Computers")}`} target="_blank" rel="noopener noreferrer"
+          <a href={`https://wa.me/91${lead.phone.replace(/\D/g, "")}?text=${encodeURIComponent("Hi, I'm reaching out from Textile Twist")}`} target="_blank" rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 py-3 bg-green-500 text-white rounded-xl font-semibold text-sm hover:bg-green-600 transition-colors">
             <MessageCircle className="w-4 h-4" /> WhatsApp
           </a>

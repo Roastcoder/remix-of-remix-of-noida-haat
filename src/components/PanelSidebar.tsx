@@ -21,7 +21,7 @@ export function PanelSidebar({ items, title }: Props) {
     <aside className="hidden md:flex w-64 h-screen sticky top-0 bg-card border-r border-border flex-col">
       <div className="p-6 border-b border-border">
         <div className="flex items-center gap-2.5 mb-1">
-          <span className="text-sm font-bold text-foreground">Chauhaan Computers</span>
+          <span className="text-sm font-bold text-foreground">Textile Twist</span>
         </div>
         <p className="text-[10px] text-muted-foreground uppercase tracking-widest">{title}</p>
       </div>
@@ -74,7 +74,7 @@ export function PanelMobileHeader({ title }: { title: string }) {
   return (
     <header className="md:hidden sticky top-0 z-40 bg-card border-b border-border px-4 py-3 flex items-center justify-between">
       <div>
-        <p className="text-sm font-bold text-foreground">Chauhaan Computers</p>
+        <p className="text-sm font-bold text-foreground">Textile Twist</p>
         <p className="text-[10px] text-muted-foreground uppercase tracking-widest">{title}</p>
       </div>
       <div className="flex items-center gap-2">
